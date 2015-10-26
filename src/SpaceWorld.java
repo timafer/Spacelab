@@ -46,6 +46,12 @@ public class SpaceWorld extends World {
 			back.setColor(Color.black);
 	}else{
 	back.setColor(Color.WHITE);}
+	for (int p=0;p<100;p++){
+		int rx=R.nextInt(WORLD_WIDTH);
+		int ry=R.nextInt(WORLD_HEIGHT);
+		int rs=R.nextInt(5);
+		back.fillOval(rx,ry,rs,rs);	}
+	GreenfootImage star=new GreenfootImage("C:\\Users\\Timafer\\Desktop\\Java\\SpaceLab\\Images\\star.png");
 	GreenfootImage saturn=new GreenfootImage("C:\\Users\\Timafer\\Desktop\\Java\\SpaceLab\\Images\\Saturn.png");
 	GreenfootImage mars=new GreenfootImage("C:\\Users\\Timafer\\Desktop\\Java\\SpaceLab\\Images\\RedPlanet.png");
 	GreenfootImage moon=new GreenfootImage("C:\\Users\\Timafer\\Desktop\\Java\\SpaceLab\\Images\\Moon.png");
@@ -80,36 +86,36 @@ public class SpaceWorld extends World {
 	//back.drawLine(WORLD_WIDTH/2, 0, WORLD_WIDTH/2, MIDY*2);
 	if ((mx>MIDX||my>MIDY)&&(sx>MIDX||sy>MIDY)&&(max>MIDX||may>MIDY)){
 		for (int x=0;x<=2;x+=1){
-		int tx=R.nextInt(MIDX);
+		int tx=R.nextInt(MIDX-star.getWidth());
 		int ty=R.nextInt(MIDY);
-		back.fillOval(tx, ty, 10, 10);}
+		back.drawImage(star, tx, ty);}
 	}
 	if ((mx<MIDX||my>MIDY)&&(sx<MIDX||sy>MIDY)&&(max<MIDX||may>MIDY)){
 		for (int x=0;x<=2;x+=1){
-		int tx=R.nextInt(MIDX)+MIDX;
+		int tx=R.nextInt(MIDX-star.getWidth())+MIDX;
 		int ty=R.nextInt(MIDY);
-		back.fillOval(tx, ty, 10, 10);}
+		back.drawImage(star, tx, ty);}
 	}
 	if ((mx>MIDX||my<MIDY)&&(sx>MIDX||sy<MIDY)&&(max>MIDX||my<MIDY)){
 		for (int x=0;x<=2;x+=1){
-		int tx=R.nextInt(MIDX);
+		int tx=R.nextInt(MIDX-star.getWidth());
 		int ty=R.nextInt(MIDY)+MIDY;
-		back.fillOval(tx, ty, 10, 10);}
+		back.drawImage(star, tx, ty);}
 	}
 	if ((mx<MIDX||my<MIDY)&&(sx<MIDX||sy<MIDY)&&(max<MIDX||may<MIDY)){
 		for (int x=0;x<=2;x+=1){
-		int tx=R.nextInt(MIDX)+MIDX;
+		int tx=R.nextInt(MIDX-star.getWidth())+MIDX;
 		int ty=R.nextInt(MIDY)+MIDY;
-		back.fillOval(tx, ty, 10, 10);}
+		back.drawImage(star, tx, ty);}
 	}
-	back.drawImage(saturn, sx,sy);
+	back.drawImage(saturn, sx-saturn.getWidth(),sy);
 	back.drawImage(mars,max,may);
 	Scanner input=new Scanner(System.in);
 	//System.out.println("Pls enter moon x postion");
 	//int mx=input.nextInt();
 	//System.out.println("Pls enter moon y postion");
 	//int my=input.nextInt();
-	back.drawImage(moon,mx,my);
+	back.drawImage(moon,mx-moon.getWidth(),my);
 	back.drawImage(earth, EARTH_X, EARTH_Y);
 	}
 }
