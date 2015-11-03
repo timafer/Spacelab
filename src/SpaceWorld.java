@@ -16,15 +16,15 @@ public class SpaceWorld extends World {
 	private static final int MOON_PY=0;
 	private static final int MOON_PX=0;
 	private static final int STARAMOUNT=100;
-
-	public SpaceWorld(){
-		super(WORLD_WIDTH,WORLD_HEIGHT,CELL_SIZE);
-		Random R= new Random();
-		int[] starx=new int[STARAMOUNT];
+int[] starx=new int[STARAMOUNT];
 		int[] stary=new int[STARAMOUNT];
 		int[] stars=new int[STARAMOUNT];
 		int[] starc=new int[STARAMOUNT];
 		GreenfootImage back=getBackground();
+			Random R= new Random();	
+	public SpaceWorld(){
+		super(WORLD_WIDTH,WORLD_HEIGHT,CELL_SIZE);
+
 		Scanner scan=new Scanner(System.in);
 		System.out.println("Please enter a background color");
 		String colo=scan.nextLine();
@@ -143,12 +143,12 @@ public class SpaceWorld extends World {
 		back.drawImage(earth, EARTH_X, EARTH_Y);
 		//int[] varible=New Int[number] to make an array
 	}
-	public void act(int[]stx,int[]sty,int[]sts,int[]stc,Random R,GreenfootImage back){
+	public void act(){
 		for (int x=0;x<100;x++){
-			int rc=stc[x];
-			int rx=stx[x];
-			int ry=sty[x];
-			int rs=sts[x];
+			int rc=starc[x];
+			int rx=starx[x];
+			int ry=stary[x];
+			int rs=stars[x];
 			int r=R.nextInt(100);
 			 if (r==6){
 				  rc=R.nextInt(5);
